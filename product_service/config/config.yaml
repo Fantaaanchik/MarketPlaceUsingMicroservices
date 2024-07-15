@@ -1,0 +1,5 @@
+server:
+  address: ":8082"
+
+database:
+  url: "host=localhost user=product_service dbname=product_service_db sslmode=disable password=product_service_password"

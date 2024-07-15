@@ -1,0 +1,5 @@
+server:
+  address: ":8081"
+
+database:
+  url: "host=localhost user=order_service dbname=order_service_db sslmode=disable password=order_service_password"

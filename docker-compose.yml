@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: marketplaceUser
+      POSTGRES_PASSWORD: marketplacePassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  user-service:
+    build: ./user_service
+    depends_on:
+      - postgres
+    environment:
+      CONFIG_PATH: /config/config.yaml
+    volumes:
+      - ./user-service/config.yaml:/config/config.yaml
+  order-service:
+    build: ./product_service
+    depends_on:
+      - postgres
+    environment:
+      CONFIG_PATH: /config/config.yaml
+    volumes:
+      - ./user-service/config.yaml:/config/config.yaml
+  product-service:
+    build: ./product_service
+    depends_on:
+      - postgres
+    environment:
+      CONFIG_PATH: /config/config.yaml
+    volumes:
+      - ./user-service/config.yaml:/config/config.yaml
+
+volumes:
+  postgres_data:

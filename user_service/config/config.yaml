@@ -1,0 +1,5 @@
+server:
+  address: ":8080"
+
+database:
+  url: "host=localhost user=user_service dbname=user_service_db sslmode=disable password=user_service_password"
